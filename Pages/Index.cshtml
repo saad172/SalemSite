@@ -1,0 +1,158 @@
+﻿@page
+@model IndexModel
+@{
+    ViewData["Title"] = "Home page";
+}
+<head>
+
+
+</head>
+
+
+<div class="text-center">
+    <h1 class="display-4">Welcome to your Test!</h1>
+</div>
+
+<!-- The Modal -->
+<div id="myModal" class="modal">
+
+    <!-- Modal content -->
+    <div class="modal-content">
+        <p>
+            Purpose of the Study:
+            You are being asked to participate in a study for a Texas Woman's University psychology class. The purpose of the current study is to examine how gender and time may impact memory. You are only permitted to participate once. Eligibility requirements for participants will include: (a) you must be 18-35 years old.
+        </p>
+         <p>
+            Description:
+            In this study, you will complete an online quiz. You will be shown 10 images for five seconds each, then you will be asked to list the images you were shown in the order they appeared. This quiz will take approximately one minute.
+            </p><p>
+            Participation and Benefits:
+            Your involvement in this research study is entirely voluntary. You may discontinue your participation at any time or choose not to answer a specific question. The only direct benefits of this study to you are that you are helping the investigators collect data for their research, and you are welcome to inquire about the study results. The researcher will benefit from this study by learning more about this topic. If you wish to receive information about the results of this study, please request that information by email from the researcher(s) listed at the top of this form.
+             </p> <p>
+            Potential Risks:
+            The following are risks related to your participation in this study and steps that the researcher will take to minimize those risks: There is a risk of loss of confidentiality. You will not use your name or any other identifying information. You may risk a loss of confidentiality if you email the researcher to ask for the study's results. If you choose to email the researcher, the researcher will immediately delete such emails after responding to them. There is a potential risk of loss of confidentiality in all email, downloading, and internet transactions. There is a risk of loss of time. There is a risk of coercion. There is a risk of fatigue and/or emotional discomfort. You may take a break or discontinue your participation in the study without any negative consequences.
+             </p><p>
+
+            Questions Regarding the Study:
+            If you have any questions about the study, please contact the researchers at gcarrillo@twu.edu, kguardado4@twu.edu, smola1@twu.edu.
+        </p>
+        <span class="close">Accept & Start Test</span>
+    </div>
+
+ 
+</div> 
+    <div class="text-center">
+        <button class=button id="timer" onclick="startImage()">Start Timer</button>
+    </div>
+    <div class="text-center">
+        <img id="img" class="image" />
+    <button class="button" id="next" onclick="myFunction()">Next</button>
+
+    </div>
+
+
+ <style>
+
+     #next{
+            background-color: Red;
+            color: white;
+            margin-top: 2em;
+            margin-bottom: 2em;
+            display:none;
+            
+            
+     }
+    .image {
+    width:500px;
+    height:500px;
+}
+.grid-container {
+    margin-top: 5em;
+  display: grid;
+  grid-template-columns: auto auto auto auto auto;
+  background-color: grey;
+  padding: 10px;
+}
+.grid-item {
+  background-color: #d3d3d3;
+  border: 1px solid rgba(0, 0, 0, 0.8);
+  padding: 20px;
+  font-size: 30px;
+  text-align: center;
+}
+
+    /* The Modal (background) */
+    #timer {
+        background-color: Red;
+        color:white;
+        margin-top:2em;
+        margin-bottom:2em;
+    }
+    .modal {
+        display: block; /* Hidden by default */
+        position: fixed; /* Stay in place */
+        z-index: 1; /* Sit on top */
+        left: 0;
+        top: 0;
+        width: 100%; /* Full width */
+        height: 100%; /* Full height */
+        overflow: auto; /* Enable scroll if needed */
+        background-color: rgb(0,0,0); /* Fallback color */
+        background-color: rgba(0,0,0,0.4); /* Black w/ opacity */
+    }
+
+    /* Modal Content/Box */
+    .modal-content {
+        background-color: #fefefe;
+        margin: 15% auto; /* 15% from the top and centered */
+        padding: 20px;
+        border: 1px solid #888;
+        width: 80%; /* Could be more or less, depending on screen size */
+    }
+
+    /* The Close Button */
+    .close {
+        color: #aaa;
+        float: right;
+        font-size: 28px;
+        font-weight: bold;
+    }
+
+        .close:hover,
+        .close:focus {
+            color: black;
+            text-decoration: none;
+            cursor: pointer;
+        }
+</style>
+    <script>
+    // Get the modal
+
+    var img = document.getElementById("img");
+    
+    function start() {
+        document.getElementById("count").style = "color:green;";
+        startImage();
+    };
+    function startImage() {
+        var i = 1;
+        setInterval(function () {
+                if  (i <= 10 ) {
+                var imageSRC = "./Images/"+i+".jpg";
+                img.src = imageSRC;
+                i=i+1;
+                console.log(i);
+            }
+        }, 5000)
+      setInterval(function (){
+          if(i>10){
+          document.getElementById("next").style.display="block";
+      
+          }},100)
+
+        }
+    
+    function myFunction() {
+        location.replace("https://docs.google.com/forms/d/1fOIzqPQYkM3Spa0N18MwYVXMLBqGvyQnx-AQ2ylMG-E/edit?usp=sharing_eip_m&ts=6362f46c")
+    }
+    </script>
